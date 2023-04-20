@@ -12,6 +12,7 @@ export function cipher(str, shift) {
 export function decipher(str, shift) {
     if (str == '') return str
     let firstLetter = str.slice(0, 1)
-    if (!letters.includes(firstLetter)) return firstLetter + decipher(str.slice(1), shift)
+    if (!letters.includes(firstLetter) && !capitals.includes(firstLetter)) return firstLetter + decipher(str.slice(1), shift)
+    if (firstLetter.toLowerCase() !== firstLetter) return capitals.at(capitals.indexOf(firstLetter)-shift) + decipher(str.slice(1), shift)
     return letters.at(letters.indexOf(firstLetter)-shift) + decipher(str.slice(1), shift)
 }
