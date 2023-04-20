@@ -59,7 +59,7 @@ function App() {
 
       {/* Decryption section */}
       <div className="font-bold rounded-lg bg-emerald-300 p-4 mt-6 mx-2 sm:mx-10 hover:drop-shadow-xl bg-blend-lighten">
-        <p className="mb-1 text-2xl px-3">Enter the ciphered message you want to decrypt</p>
+        <p className="mb-1 text-2xl px-3">Enter the ciphered message you want to decrypt:</p>
         <input type="text" value={decipherInput} onChange={handleDecipherChange} name='text' className="w-72 px-3 py-2 bg-transparent focus:outline-none mb-2 text-lg text-cyan-900" placeholder="Ciphered Message" />
         <br />
         <p className="mb-1 text-xl px-3">Shift Value:</p>
