@@ -27,6 +27,10 @@ function App() {
     setCipheredMsg(cipher(cipherInput, newShiftValue))
   }
 
+  function copyCiphered() {
+    navigator.clipboard.writeText(cipheredMsg).then(alert('Copied'))
+  }
+
   function handleDecipherChange(e) {
     const textToDecipher = e.target.value
     setDecipherInput(textToDecipher)
@@ -37,6 +41,10 @@ function App() {
     const newShiftValue = e.target.value
     setDShift(newShiftValue)
     setDecipheredMsg(decipher(decipherInput, newShiftValue))
+  }
+
+  function copyDeciphered() {
+    navigator.clipboard.writeText(decipheredMsg).then(alert('Copied'))
   }
 
   return (
@@ -51,7 +59,7 @@ function App() {
         <br />
         <p className='px-3 text-2xl mb-1'>Encrypted Message:</p>
         <p className='c-result px-3 text-lg py-2 text-cyan-900'>{cipheredMsg}</p>
-        <button className="bg-orange-400 p-2 text-zinc-50 mx-3 my-6 text-md"><Copy size={24} /></button>
+        <button onClick={copyCiphered} className="bg-orange-400 p-2 text-zinc-50 mx-3 my-6 text-md"><Copy size={24} /></button>
         <br />
         <button className="bg-blue-950 px-3 py-2 text-zinc-50 mx-3 mb-4 text-md">Load random</button>
         <button className="bg-red-500 px-3 py-2 text-zinc-50 mx-3 mb-4 text-md">Clear field</button>
@@ -67,10 +75,11 @@ function App() {
         <br />
         <p className='px-3 text-2xl mb-1'>Decrypted Message:</p>
         <p className='c-result px-3 text-lg py-2 text-cyan-900'>{decipheredMsg}</p>
-        <button className="bg-orange-400 p-2 text-zinc-50 mx-3 my-6 text-md"><Copy size={24} /></button>
+        <button onClick={copyDeciphered} className="bg-orange-400 p-2 text-zinc-50 mx-3 my-6 text-md"><Copy size={24} /></button>
         <br />
       </div>
     </div>
+
   )
 }
 
